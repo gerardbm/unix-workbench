@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Author : Gerard Bajona
-# Date   : 22/02/2019
+# Date   : 23/02/2019
 
 subdirectories() {
 	printf "Guessing Game in Bash\n\n"
