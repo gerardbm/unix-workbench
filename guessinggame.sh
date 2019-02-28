@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 # Author   : Gerard Bajona
 # Created  : 23/02/2019
-# Modified : 27/02/2019
+# Modified : 28/02/2019
 
 subdirectories() {
 	printf "Guessing Game in Bash\n\n"
 	while read -r -p "Include subdirectories? [y/n] " subdirs; do
 		if [[ "$subdirs" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-			numfiles=$(find . -not -type d -not -path '*/\.*' | wc -l)
+			numfiles=$(find . ! -type d | grep -v '.git' -c)
 			subdirsv="current directory and subdirectories:"
 			printf "\033[32m%s \n\n\033[0m" "Ok, subdirectories included!"
 			break;
 		elif [[ "$subdirs" =~ ^([nN][oO]|[nN])$ ]]; then
-			numfiles=$(find . -maxdepth 1 -not -type d -not -path '*/\.*' | wc -l)
+			numfiles=$(find . -maxdepth 1 ! -type d | wc -l)
 			subdirsv="current directory only:"
 			printf "\033[32m%s \n\n\033[0m" "Ok, subdirectories excluded!"
 			break;
